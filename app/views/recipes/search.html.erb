@@ -1,0 +1,41 @@
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h1>Search results for: <i><%= params[:search] %></i></h1>
+<div class="digg_pagination">
+  <div class="page_info">
+    <%= page_entries_info @results %>
+  </div>
+  <%= will_paginate @results, :container => true %>
+</div>
+<div class="row mb-2">
+  <% @results.each do |recipe| %>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative purple-border">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary"><%= link_to recipe.category.category_name, recipes_path(category_id: recipe.category_id) %></strong>
+          <h3 class="mb-0"><%= link_to recipe.title, recipe_path(recipe.id), class:"no_style_link" %></h3>
+          <div class="mb-1 text-muted"><%= "by: " + recipe.author %></div>
+          <p class="card-text mb-auto">
+            <%= "Prep time: " + recipe.prep_time.to_s + " mins" %></br> 
+            <%= "Cook time: " + recipe.cook_time.to_s + " mins" %> </br>
+            <%= "Ratings: " + recipe.ratings.to_s %>          
+          </p>
+          <a href="#" >Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <%= image_tag(recipe.image, class: "recipe_image_thumb") %>
+        </div>
+      </div>
+    </div>
+ <% end %>
+</div>
+<div>
+  <% if @results.empty? %>
+    <p>Please try with a different ingredient.</p>
+  <% end %>
+</div>
+<div class="digg_pagination">
+  <%= will_paginate @results, :container => true %>
+</div>
