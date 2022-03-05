@@ -15,6 +15,15 @@ class RecipesController < ApplicationController
     @ingredients = Ingredient.where(:recipe_id => @recipe.id)
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to recipes_path and return
+    else 
+      @parameter = params[:search].downcase
+      @results = Recipe.joins(:ingredients).where("lower(ingredient_name) LIKE :search", search: "%#{@parameter}%" ).distinct.paginate(page: params[:page], per_page: 26)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe

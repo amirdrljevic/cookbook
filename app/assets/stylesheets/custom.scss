@@ -8,6 +8,17 @@
   box-shadow: 0 .125rem .25rem rgba(140,36,120,.3)!important;
 }
 
+.search-box{
+  background-color: #d0d5d9;
+  padding: 4px 2px 2px 4px;
+  box-sizing: border-box;
+  .btn {
+    border: none;
+    padding-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
 .digg_pagination {
   background: white;
   cursor: default;
