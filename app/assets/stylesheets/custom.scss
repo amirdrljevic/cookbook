@@ -1,0 +1,73 @@
+.no_style_link{
+  text-decoration: none;
+  color: #343a40
+}
+
+.purple-border{
+  border: 1px solid #8c247875!important;
+  box-shadow: 0 .125rem .25rem rgba(140,36,120,.3)!important;
+}
+
+.digg_pagination {
+  background: white;
+  cursor: default;
+  clear: both;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .active {
+    font-style: normal;
+    font-weight: bold;
+    background: #a5b1be;
+    color: white;
+    border: 1px solid #212529; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #323435;
+    border: 1px solid #9aafe5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #892074;
+    color: white;
+    padding: 0.4em 0.6em;
+    max-width: 29em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .pagination {
+      flex-wrap: wrap;
+    }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #a5b1be;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
+/* recipe image */
+.recipe_image_thumb {
+  height: 200px;
+    width: 200px;
+  object-fit: contain;
+}
+
+
+.sidebar_card {
+  margin-bottom: 10px;
+  border-radius: 7px;
+}
