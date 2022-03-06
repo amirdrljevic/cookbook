@@ -2,22 +2,28 @@
 
 This is a simple prototype of CookBook app. Right now it only consists of basic functionalities, and recipes are in English.
 
-Things you may want to cover:
+PostgreSQL database is used for this project. Database consists of 3 tables: categories, recipes, ingredients, the associations are established:
+Category has_many :recipes
 
-* Ruby version
+Recipe belongs_to :categories
+Recipe has_many :ingredients
 
-* System dependencies
+Ingredient belongs_to :recipe
 
-* Configuration
+This app is hosted on heroku: https://amird-cookbook.herokuapp.com/
 
-* Database creation
+The JSON file is huge with 10000 recipes, so I decided to reduce it to be able to host it on heroku free tier. 
 
-* Database initialization
+Right now, this app looks better on desktop browser, and user can:
 
-* How to run the test suite
+* Browse recipes using the pagination 
 
-* Services (job queues, cache servers, search engines, etc.)
+* View a recipe by clicking on either title, image or 'continue reading' link on index page
 
-* Deployment instructions
+* Click on category, to display recipes belonging to that category (category link is displayed above title on index page, and at the bottom on show page)
 
-* ...
+* Search recipes by ingredients, search box is provided in header
+
+* There are some recipes with category="", so I created a "Not categorized" option for such recipes
+
+
