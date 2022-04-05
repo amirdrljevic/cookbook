@@ -20,7 +20,10 @@ class RecipesController < ApplicationController
       redirect_to recipes_path and return
     else 
       @parameter = params[:search].downcase
-      @results = Recipe.joins(:ingredients).where("lower(ingredient_name) LIKE :search", search: "%#{@parameter}%" ).distinct.paginate(page: params[:page], per_page: 26)
+      @recipe_ids = Ingredient.search_ingredient(@parameter).pluck(:recipe_id)
+      @results = Recipe.where(id: @recipe_ids).paginate(page: params[:page], per_page: 26)
+      #@results = Recipe.joins(:ingredients).search_ingredient(@parameter)
+      #@results = Recipe.joins(:ingredients).where("lower(ingredient_name) LIKE :search", search: "%#{@parameter}%" ).distinct.paginate(page: params[:page], per_page: 26)
     end
   end
 
